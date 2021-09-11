@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FullStackTask</name>
+    </assembly>
+    <members>
+        <member name="M:FullStackTask.Controllers.AuthenticationController.Register(FullStackTask.Models.ViewModels.RegisterModel)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="registerModel">Username, email, password</param>
+            <returns>string</returns>
+            POST:/api/authentication/register
+        </member>
+        <member name="M:FullStackTask.Controllers.AuthenticationController.Login(FullStackTask.Models.ViewModels.LoginModel)">
+            <summary>
+            Login with existing user
+            </summary>
+            <param name="loginModel">username and password</param>
+            <returns>access token "token" and referesh token "refereshToken"</returns>
+            POST:/api/authentication/Login
+        </member>
+        <member name="M:FullStackTask.Controllers.AuthenticationController.RefereshToken(FullStackTask.Controllers.AuthenticationController.RefereshModel)">
+            <summary>
+            Uses the referesh token to generate a new access token
+            /// </summary>
+            <returns>access token "token" and referesh token "refereshToken"</returns>
+            POST:/api/authentication/RefereshToken
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.GetAll">
+            <summary>
+            Retrieves the data of all the players registered
+            </summary>
+            <returns>List of players</returns>
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.GetById(System.Int32)">
+            <summary>
+            Gets A specific player by their Id and returns null if no player exists
+            </summary>
+            <param name="id"></param>
+            <returns>Player</returns>
+            GET: /api/players/getById/{id}
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.GetImage(System.String)">
+            <summary>
+            Gets a player image by providing its name
+            </summary>
+            <param name="imageName"></param>
+            <returns>memory stream</returns>
+            GET: /api/players/getImage/{imageName}
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.GetByTeamIdId(System.Int32)">
+            <summary>
+            Gets players by team id and returns empty list if no players for that team
+            </summary>
+            <param name="teamId"></param>
+            <returns>List of players</returns>
+            GET: /api/players/getByTeamId/{teamId}
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.AddPlayer(FullStackTask.Models.ViewModels.PlayerModel)">
+            <summary>
+            Adds a new player
+            </summary>
+            <param name="playerModel">A model consisting of Player object "Player" and an image "PlayerImage"</param>
+            <returns>The player created</returns>
+            POST: /api/players/
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.UpdatePlayer(FullStackTask.Models.ViewModels.PlayerModel)">
+            <summary>
+            Updates the data of an existing player
+            </summary>
+            <param name="playerModel">A model consisting of Player object "Player" and an image "PlayerImage"</param>
+            <returns>The updated player</returns>
+            PUT: /api/players/
+        </member>
+        <member name="M:FullStackTask.Controllers.PlayersController.DeletePlayer(System.Int32)">
+            <summary>
+            Delete a player
+            </summary>
+            <param name="id">Player Id</param>
+            <returns>true if deleting succeeded and false if not</returns>
+            DELETE: /api/players
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.GetTeams">
+            <summary>
+            Returns a list of teams
+            </summary>
+            <returns>List of teams</returns>
+            GET: /api/teams
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.GetTeam(System.Int32)">
+            <summary>
+            Returns a team by its id
+            </summary>
+            <param name="id">The team id</param>
+            <returns>Team</returns>
+            GET: /api/teams/{id}
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.GetImage(System.String)">
+            <summary>
+            Gets a team logo image by providing its name
+            </summary>
+            <param name="imageName"></param>
+            <returns>memory stream</returns>
+            GET: /api/teams/getImage/{imageName}
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.AddTeam(FullStackTask.Models.ViewModels.TeamWithPlayers)">
+            <summary>
+            Adds a new team with its players
+            </summary>
+            <param name="model">consists of a team object "Team", list of players "Players", team Logo image "TeamImage" and list of players images "PlayersImages"  </param>
+            <returns>The created team</returns>
+            POST: /api/teams
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.UpdateTeam(FullStackTask.Models.ViewModels.TeamWithPlayers)">
+            <summary>
+            Updates a team data with its players
+            </summary>
+            <param name="model">consists of a team object "Team", list of players "Players", team Logo image "TeamImage" and list of players images "PlayersImages"  </param>
+            <returns>the updated team</returns>
+            PUT: /api/teams
+        </member>
+        <member name="M:FullStackTask.Controllers.TeamsController.DeleteTeam(System.Int32)">
+            <summary>
+            Deletes team with its player by tteam id
+            </summary>
+            <param name="id">the id of the team to be deleted</param>
+            <returns>true if deleting succeeded and false if not</returns>
+            DELETE: /api/teams/{id}
+        </member>
+    </members>
+</doc>
